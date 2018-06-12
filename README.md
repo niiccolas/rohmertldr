@@ -1,2 +1,2 @@
-# rohmertldr
-A visual summary of Rohmer's filmography
+# Rohmer tl;dr
+A visual summary of director Éric Rohmer's filmography.
