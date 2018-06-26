@@ -22,6 +22,6 @@ document.querySelector('#currentYear').textContent = new Date().getFullYear();
     'rayon-vert.jpg',
   ];
   const rand = getRandomInt(0, imgCollection.length);
-  document.querySelector('.film').style.background = `url('./assets/img/${imgCollection[rand]}') no-repeat`;
-  document.querySelector('.film').style.backgroundSize = 'cover';
+  document.querySelector('.hero').style.background = `url('./assets/img/${imgCollection[rand]}') no-repeat`;
+  document.querySelector('.hero').style.backgroundSize = 'cover';
 }());
