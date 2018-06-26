@@ -1,61 +1,94 @@
-* {
-  box-sizing: border-box;
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: Avenir;
 }
 
-body {
-  font-family: Helvetica, Arial, sans-serif;
-}
-
-.Site {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-}
-
-.Site-content {
-  flex: 1;
-}
-
-header {
-  position: fixed;
-  width: 100%;
-}
-
-header h1 {
-  margin: 0px;
-}
-
-nav li {
-  margin: 10px 10px 0;
-  display: inline-block;
-}
-
-li a {
-  text-decoration: none;
-  color: black;
-}
-
-main {
-  height: 100vh;
-}
-
-.film {
-  width: 100%;
+.grid-container {
+  display: grid;
   height: 100%;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 80vh auto 50px;
+  grid-template-areas: "header" "hero" "cards" "footer";
+}
+
+.header {
+  grid-area: header;
+}
+
+.hero {
+  grid-area: hero;
   background: url('../img/ami-mon-amie.jpg') no-repeat;
   background-size: cover;
 }
 
-footer {
-  bottom: 0;
-  height: 50px;
-  width: 100%;
-  line-height: 50px;
-  text-align: center;
-  background: white;
-  color: black;
+.cards {
+  display: grid;
+  grid-area: cards;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas: "c1 c2 c3" "c4 c5 c6" "c7 c8 c9";
+  padding: 30px;
+  grid-gap: 30px;
+  height: 480px;
 }
 
-footer a {
-  color: black;
+#c1 {
+  grid-area: c1;
+  background: url('../img/ami-mon-amie.jpg') no-repeat;
+  background-size: cover;
+}
+
+#c2 {
+  grid-area: c2;
+  background: url('../img/amour-apres-midi.jpg') no-repeat;
+  background-size: cover;
+}
+
+#c3 {
+  grid-area: c3;
+  background: url('../img/collectioneuse.png') no-repeat;
+  background-size: cover;
+}
+
+#c4 {
+  grid-area: c4;
+  background: url('../img/conte-automne.jpg') no-repeat;
+  background-size: cover;
+}
+
+#c5 {
+  grid-area: c5;
+  background: url('../img/conte-ete.jpg') no-repeat;
+  background-size: cover;
+}
+
+#c6 {
+  grid-area: c6;
+  background: url('../img/femme-aviateur.jpg') no-repeat;
+  background-size: cover;
+}
+
+#c7 {
+  grid-area: c7;
+  background: url('../img/genou-claire.jpg') no-repeat;
+  background-size: cover;
+}
+
+#c8 {
+  grid-area: c8;
+  background: url('../img/nuit-maud.jpg') no-repeat;
+  background-size: cover;
+}
+
+#c9 {
+  grid-area: c9;
+  background: url('../img/rayon-vert.jpg') no-repeat;
+  background-size: cover;
+}
+
+.footer {
+  grid-area: footer;
+  text-align: center;
+  height: 0px;
 }
