@@ -24,13 +24,13 @@ html, body {
 
 .cards {
   display: grid;
-  grid-area: cards;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  grid-template-areas: "c1 c2 c3" "c4 c5 c6" "c7 c8 c9";
-  padding: 30px;
-  grid-gap: 30px;
-  height: 480px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 20px;
+  align-items: stretch;
+  padding: 20px;
+}
+.cards img {
+  max-width: 100%;
 }
 
 #c1 {
