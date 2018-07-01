@@ -1,33 +1,55 @@
-html, body {
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300');
+
+:root {
+  --header-height: auto;
+  --hero-height: 80vh;
+  --cards-height: auto;
+  --footer-height: 50px;
+}
+
+* {
   margin: 0;
   padding: 0;
-  font-family: Avenir;
+  box-sizing: border-box;
+}
+
+html,body {
+  font-family: 'Roboto', Avenir, Helvetica, sans-serif;
 }
 
 .grid-container {
   display: grid;
   height: 100%;
   grid-template-columns: 1fr;
-  grid-template-rows: auto 80vh auto 50px;
+  grid-template-rows: var(--header-height) var(--hero-height) var(--cards-height) var(--footer-height);
   grid-template-areas: "header" "hero" "cards" "footer";
 }
 
 .header {
   grid-area: header;
+  display: fixed;
+  text-align: center;
+  padding: 10px 0;
+  display: block;
+}
+
+h1 {
+  font-weight: 100;
+  font-size: 3rem;
 }
 
 .hero {
   grid-area: hero;
-  background: url('../img/ami-mon-amie.jpg') no-repeat;
   background-size: cover;
 }
 
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  grid-gap: 20px;
+  grid-gap: 30px;
   align-items: stretch;
-  padding: 20px;
+  padding: 30px;
 }
 .cards img {
   max-width: 100%;
@@ -90,5 +112,61 @@ html, body {
 .footer {
   grid-area: footer;
   text-align: center;
-  height: 0px;
+  line-height: var(--footer-height);
+}
+
+/* Video Player*/
+#video-container {
+  overflow: hidden;
+  height: 80vh;
+  position: relative;
+  min-height: 150px;
+}
+
+video {
+  padding: 0px;
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+video:hover + #mute {
+  opacity: 1;
+  transition: 0s opacity;
+}
+
+#mute {
+  /* padding: 20px; */
+  background: rgba(255,255,255,.8);
+  border-radius: 50%;
+  border: 0;
+  bottom: 20px;
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 2rem;
+  height: 60px;
+  left: 0;
+  margin: auto;
+  opacity: 0;
+  outline: none;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 0;
+  width: 60px;
+  z-index: 5;
+  transition: 1s opacity ease;
+}
+
+#mute:hover {
+  transition: 1s opacity ease;
+  opacity: 1;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 1);
+}
+
+.material-icons {
+  transform: scale(1.5);
 }
