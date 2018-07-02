@@ -15,6 +15,9 @@ document.querySelector('#currentYear').textContent = new Date().getFullYear();
   const imgCollection = [
     'pauline-plage',
     'conte-ete',
+    'amour-apres-midi',
+    'nuit-maud',
+    'rayon-vert'
   ];
   const rand = getRandomInt(imgCollection.length - 1, 0);
   const randImg = imgCollection[rand];
