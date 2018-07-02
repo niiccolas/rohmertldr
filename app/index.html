@@ -16,7 +16,9 @@
       <div class="hero">
         <div id="video-container">
             <video id="fullscreenVideo" autoplay muted loop>
-              <source src="/app/assets/video/pauline-plage2.mp4" type="video/mp4">
+              <source id="webm" src="" type="video/webm">
+              <source id="mp4" src="" type="video/mp4">
+              <p>Your browser doesn't support HTML5 video. Here is a <a id="noHtml5Fallback" href="">link to the video</a> instead.</p>
             </video>
             <button type="button" id="mute" onclick="toggleSound()"><i class="material-icons">volume_off</i></button>
           </div>
@@ -31,7 +33,6 @@
         <img src="assets/img/genou-claire.jpg" alt="">
         <img src="assets/img/nuit-maud.jpg" alt="">
         <img src="assets/img/rayon-vert.jpg" alt="">
-        <!-- <img src="assets/img/pauline-plage.jpg" alt=""> -->
       </div>
       <div class="footer">
         <small>
