@@ -1,0 +1,29 @@
+{
+  "name": "rohmertldr",
+  "version": "1.0.0",
+  "description": "[A visual summary of director Éric Rohmer's filmography.](https://niiccolas.github.io/rohmertldr/app/ \"Rohmer tl;dr\")",
+  "main": "app.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/niiccolas/rohmertldr.git"
+  },
+  "author": "niiccolas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/niiccolas/rohmertldr/issues"
+  },
+  "homepage": "https://github.com/niiccolas/rohmertldr#readme",
+  "devDependencies": {
+    "gulp": "^4.0.0",
+    "gulp-imagemin": "^4.1.0"
+  },
+  "dependencies": {
+    "normalize.css": "^8.0.0"
+  }
+}
