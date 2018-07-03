@@ -1,3 +1,6 @@
 # ignore Adobe InDesign files
 *.indd
 *.idlk
+
+# ignore Temporary files
+tmp-*

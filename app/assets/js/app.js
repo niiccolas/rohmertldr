@@ -12,18 +12,21 @@ const toggleSound = () => {
 document.querySelector('#currentYear').textContent = new Date().getFullYear();
 
 (function randomVideo() {
-  const imgCollection = [
-    'pauline-plage',
-    'conte-ete',
+  const films = [
+    'ami-mon-amie',
     'amour-apres-midi',
+    'collectioneuse',
+    'conte-automne',
+    'conte-ete',
+    'femme-aviateur',
+    'genou-claire',
+    'pauline-plage',
     'nuit-maud',
-    'rayon-vert'
+    'rayon-vert',
   ];
-  const rand = getRandomInt(imgCollection.length - 1, 0);
-  const randImg = imgCollection[rand];
+  const rand = getRandomInt(films.length - 1, 0);
+  const randImg = films[rand];
 
-  console.log(randImg);
-  // document.getElementById('fullscreenVideo').src = `assets/video/${imgCollection[rand]}`;
   document.getElementById('webm').src = `assets/video/${randImg}.webm`;
   document.getElementById('mp4').src = `assets/video/${randImg}.mp4`;
   document.getElementById('noHtml5Fallback').href = `assets/video/${randImg}.mp4`;
