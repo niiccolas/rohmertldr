@@ -19,11 +19,20 @@
     "url": "https://github.com/niiccolas/rohmertldr/issues"
   },
   "homepage": "https://github.com/niiccolas/rohmertldr#readme",
+  "dependencies": {},
   "devDependencies": {
+    "del": "^3.0.0",
     "gulp": "^4.0.0",
-    "gulp-imagemin": "^4.1.0"
-  },
-  "dependencies": {
-    "normalize.css": "^8.0.0"
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-csso": "^3.0.1",
+    "gulp-htmlmin": "^4.0.0",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-uglify": "^3.0.0",
+    "imagemin-giflossy": "^5.1.10",
+    "imagemin-mozjpeg": "^7.0.0",
+    "imagemin-pngquant": "^5.1.0",
+    "imagemin-zopfli": "^5.1.0",
+    "uglify-es": "^3.3.9"
   }
 }
