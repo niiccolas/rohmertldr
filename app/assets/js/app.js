@@ -1,12 +1,10 @@
 // Helper functions
-const getRandomInt = (max, min) => {
-  return Math.floor(Math.random() * ((max - min) + 1)) + min;
-}
+const getRandomInt = (max, min) => Math.floor(Math.random() * ((max - min) + 1)) + min;
 
 const toggleSound = () => {
   document.getElementById('fullscreenVideo').muted = !document.getElementById('fullscreenVideo').muted;
-  return document.getElementById('mute').children[0].textContent === "volume_up" ? document.getElementById('mute').children[0].textContent = "volume_off" : document.getElementById('mute').children[0].textContent = "volume_up";
-}
+  return document.getElementById('mute').children[0].textContent === 'volume_up' ? document.getElementById('mute').children[0].textContent = 'volume_off' : document.getElementById('mute').children[0].textContent = 'volume_up';
+};
 
 // Populate footer with current year
 document.querySelector('#currentYear').textContent = new Date().getFullYear();
