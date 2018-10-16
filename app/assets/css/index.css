@@ -53,6 +53,7 @@ h1 {
 }
 .cards img {
   max-width: 100%;
+  cursor: pointer;
 }
 
 #c1 {
