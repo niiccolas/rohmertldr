@@ -9,8 +9,8 @@ const toggleSound = () => {
 // Populate footer with current year
 document.querySelector('#currentYear').textContent = new Date().getFullYear();
 
-(function randomVideo() {
-  const films = [
+function loadVideoToDOM(vid) {
+  const clips = [
     'ami-mon-amie',
     'amour-apres-midi',
     'collectioneuse',
@@ -22,12 +22,24 @@ document.querySelector('#currentYear').textContent = new Date().getFullYear();
     'nuit-maud',
     'rayon-vert',
   ];
-  const rand = getRandomInt(films.length - 1, 0);
-  const randImg = films[rand];
+  const rand = getRandomInt(clips.length - 1, 0);
+  let videoClip;
 
-  document.getElementById('webm').src = `assets/video/${randImg}.webm`;
-  document.getElementById('mp4').src = `assets/video/${randImg}.mp4`;
-  document.getElementById('noHtml5Fallback').href = `assets/video/${randImg}.mp4`;
-  document.getElementById('fullscreenVideo').poster = `/app/assets/video/${randImg}-poster.jpg`;
+  vid ? videoClip = vid : videoClip = clips[rand]; // if no argument is passed to the function, pick a random clip
+
+  document.getElementById('webm').src = `assets/video/${videoClip}.webm`;
+  document.getElementById('mp4').src = `assets/video/${videoClip}.mp4`;
+  document.getElementById('noHtml5Fallback').href = `assets/video/${videoClip}.mp4`;
+  document.getElementById('fullscreenVideo').poster = `/app/assets/video/${videoClip}-poster.jpg`;
   document.getElementById('fullscreenVideo').load();
-}()); // run a random video as the page loads
+}
+
+const thumbnails = document.querySelectorAll('img')
+const getThumbFilename = function(e) {
+  const filename = e.target.src.match(/[^/]+$/)[0].slice(0,-4); // get the filename from the src url
+  loadVideoToDOM(filename);
+  window.scrollTo(0,0);
+};
+thumbnails.forEach(x => x.addEventListener('click', getThumbFilename));
+
+window.onload = loadVideoToDOM(); // run a random MUTED video as the page loads
