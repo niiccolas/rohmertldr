@@ -51,7 +51,7 @@ const rohmerTldr = {
     const cosParameter = scrollHeight / 2;
     let scrollCount = 0;
     let scrollMargin;
-    let scrollInterval = setInterval(function () {
+    let scrollInterval = setInterval(() => {
       if (window.scrollY != 0) {
         scrollCount = scrollCount + 1;
         scrollMargin = cosParameter - cosParameter * Math.cos(scrollCount * scrollStep);
