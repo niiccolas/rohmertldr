@@ -32,17 +32,17 @@ const rohmerTldr = {
 
   setListener() {
     const thumbnails = document.querySelectorAll('img');
-    thumbnails.forEach(x => x.addEventListener('click', rohmerTldr.getThumbFilename));
+    thumbnails.forEach(x => x.addEventListener('click', this.getThumbFilename.bind(this)));
   },
 
   getThumbFilename(e) {
     const filename = e.target.src.match(/[^/]+$/)[0].slice(0, -4); // get the filename from the src url
-    rohmerTldr.loadVideoToDOM(filename);
-    rohmerTldr.scrollToTop(300);
+    this.loadVideoToDOM(filename);
+    this.scrollToTop(300);
   },
 
   setYear() { // Populate footer with current year
-    document.querySelector('#currentYear').textContent = `- ${  new Date().getFullYear()}`;
+    document.querySelector('#currentYear').textContent = `- ${new Date().getFullYear()}`;
   },
 
   scrollToTop(scrollDuration) { // https://stackoverflow.com/questions/21474678/scrolltop-animation-without-jquery#24559613
@@ -66,10 +66,10 @@ const rohmerTldr = {
   },
 
   loadApp() {
-    rohmerTldr.loadVideoToDOM(); // run a random MUTED video as the page loads
-    rohmerTldr.setListener(); // listen for clicks on clip thumbnails
-    rohmerTldr.setYear(); //
-  }
-}
+    this.loadVideoToDOM(); // run a random MUTED video as the page loads
+    this.setListener(); // listen for clicks on clip thumbnails
+    this.setYear();
+  },
+};
 
-window.onload = rohmerTldr.loadApp;
+window.onload = rohmerTldr.loadApp.bind(rohmerTldr); // bind the object method to the object
