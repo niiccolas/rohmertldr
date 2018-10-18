@@ -34,6 +34,8 @@ const rohmerTldr = {
     let headerHeight = document.querySelector('.header').clientHeight;
     let viewportHeight = window.innerHeight;
     document.querySelector('#video-container').style.height = (viewportHeight - headerHeight) + 'px';
+
+    document.querySelector('#video-container').style.opacity = 1; //  fade-in video clip on load
   },
 
   setListener() {

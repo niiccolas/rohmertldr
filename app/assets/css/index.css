@@ -3,7 +3,7 @@
 
 :root {
   --header-height: auto;
-  --hero-height: 80vh;
+  /* --hero-height: 80vh; */
   --cards-height: auto;
   --footer-height: 50px;
 }
@@ -22,7 +22,7 @@ html,body {
   display: grid;
   height: 100%;
   grid-template-columns: 1fr;
-  grid-template-rows: var(--header-height) var(--hero-height) var(--cards-height) var(--footer-height);
+  grid-template-rows: var(--header-height) 1fr var(--cards-height) var(--footer-height);
   grid-template-areas: "header" "hero" "cards" "footer";
 }
 
@@ -119,9 +119,13 @@ h1 {
 /* Video Player*/
 #video-container {
   overflow: hidden;
-  height: 80vh;
+  height: 100vh;
   position: relative;
   min-height: 150px;
+
+  /* fade-in video clip on load */
+  opacity: 0;
+  transition: 1s all ease;
 }
 
 video {
