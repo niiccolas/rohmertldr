@@ -30,6 +30,12 @@ const rohmerTldr = {
     document.getElementById('fullscreenVideo').load();
   },
 
+  setPlayerHeight() {
+    let headerHeight = document.querySelector('.header').clientHeight;
+    let viewportHeight = window.innerHeight;
+    document.querySelector('#video-container').style.height = (viewportHeight - headerHeight) + 'px';
+  },
+
   setListener() {
     const thumbnails = document.querySelectorAll('img');
     thumbnails.forEach(x => x.addEventListener('click', this.getThumbFilename.bind(this)));
@@ -67,9 +73,11 @@ const rohmerTldr = {
 
   loadApp() {
     this.loadVideoToDOM(); // run a random MUTED video as the page loads
+    this.setPlayerHeight(); // adapt video player's height to viewport height
     this.setListener(); // listen for clicks on clip thumbnails
     this.setYear();
   },
 };
 
 window.onload = rohmerTldr.loadApp.bind(rohmerTldr); // bind the object method to the object
+window.addEventListener('resize', rohmerTldr.setPlayerHeight);
