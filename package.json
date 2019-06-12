@@ -19,7 +19,9 @@
     "url": "https://github.com/niiccolas/rohmertldr/issues"
   },
   "homepage": "https://github.com/niiccolas/rohmertldr#readme",
-  "dependencies": {},
+  "dependencies": {
+    "tunnel-agent": "^0.6.0"
+  },
   "devDependencies": {
     "del": "^3.0.0",
     "gulp": "^4.0.0",
@@ -29,7 +31,6 @@
     "gulp-htmlmin": "^4.0.0",
     "gulp-imagemin": "^4.1.0",
     "gulp-uglify": "^3.0.0",
-    "imagemin-giflossy": "^5.1.10",
     "imagemin-mozjpeg": "^7.0.0",
     "imagemin-pngquant": "^5.1.0",
     "imagemin-zopfli": "^5.1.0",
