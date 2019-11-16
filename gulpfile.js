@@ -1,12 +1,13 @@
-var gulp = require('gulp');
-var autoprefixer = require ('gulp-autoprefixer');
-var csso = require('gulp-csso');
-var del = require('del');
-var htmlmin = require('gulp-htmlmin');
-var concat = require('gulp-concat');
-var composer = require('gulp-uglify/composer');
-var uglifyjs = require('uglify-es');
-var minify = composer(uglifyjs, console);
+const gulp = require('gulp');
+const autoprefixer = require('gulp-autoprefixer');
+const csso = require('gulp-csso');
+const del = require('del');
+const htmlmin = require('gulp-htmlmin');
+const concat = require('gulp-concat');
+const composer = require('gulp-uglify/composer');
+const uglifyjs = require('uglify-es');
+
+const minify = composer(uglifyjs, console);
 
 // Supported browsers
 const AUTOPREFIX_BROWSERS = [
@@ -22,40 +23,45 @@ const AUTOPREFIX_BROWSERS = [
 ];
 
 // TASK: Minify CSS
-gulp.task('styles', function () {
-  return gulp.src('./app/assets/css/**/*.css')
+gulp.task('styles', () =>
+  gulp
+    .src('./app/assets/css/**/*.css')
     // Auto-prefix for cross-browser compatibility
     .pipe(concat('styles.css'))
-    .pipe(autoprefixer({browsers: AUTOPREFIX_BROWSERS}))
+    .pipe(autoprefixer({ browsers: AUTOPREFIX_BROWSERS }))
     // Minify the file
     .pipe(csso())
     // Output
-    .pipe(gulp.dest('./dist/assets/css/'))
-  });
+    .pipe(gulp.dest('./dist/assets/css/')),);
 
-  // TASK: Concat and minify JS
-  gulp.task('scripts', function (){
-    var options = {};
-    return gulp.src('./app/assets/js/**/*.js')
-      .pipe(concat('app.js'))
-      .pipe(minify(options))
-      .pipe(gulp.dest('./dist/assets/js'));
-  });
+// TASK: Concat and minify JS
+gulp.task('scripts', () => {
+  const options = {};
+  return gulp
+    .src('./app/assets/js/**/*.js')
+    .pipe(concat('app.js'))
+    .pipe(minify(options))
+    .pipe(gulp.dest('./dist/assets/js'));
+});
 
 // TASK: Minify HTML files
-gulp.task('pages', function (){
-  return gulp.src('./app/**/*.html')
+gulp.task('pages', () =>
+  gulp
+    .src('./app/**/*.html')
     .pipe(htmlmin({
-      collapseWhitespace: true,
-      removeComments: true
-    }))
-    .pipe(gulp.dest('./dist'));
-})
+        collapseWhitespace: true,
+        removeComments: true,
+      }),)
+    .pipe(gulp.dest('./dist')),);
 
 // Delete current ./dist folder
 gulp.task('clean', () => del(['dist']));
 
-gulp.task('default', gulp.series('clean', 'styles', 'scripts', 'pages', (done) => {
-  console.log('****** FRESH ./dist FOLDER EXPORTED ******');
-  done();
-}));
+// GULP DEFAULT TASK runs all of the above
+gulp.task(
+  'default',
+  gulp.series('clean', 'styles', 'scripts', 'pages', (done) => {
+    console.log('****** FRESH ./dist FOLDER EXPORTED ******');
+    done();
+  }),
+);
